@@ -11,6 +11,8 @@ export const handlePurchaseAmountForm = (event) => {
   buyLotto();
   paintPurchaseInformation();
   paintLottoIcons();
+  lottoNumbering();
+  sortNumbers();
 };
 
 const saveLottoPurchaseAmount = () => {
@@ -28,5 +30,29 @@ const paintPurchaseInformation = () => {
 const paintLottoIcons = () => {
   for (let i = 0; i < lotto.count; i++) {
     $lottoIcons.innerHTML += lottoIconTemplate();
+  }
+};
+
+const lottoNumbering = () => {
+  for (let i = 0; i < lotto.count; i++) {
+    lotto.numbers[i] = randomNumber();
+  }
+};
+
+const randomNumber = () => {
+  let numbers = [];
+  while (numbers.length < 6) {
+    let temp = Math.floor(Math.random() * 45) + 1;
+    if (numbers.includes(temp)) continue;
+    numbers.push(temp);
+  }
+  return numbers;
+};
+
+const sortNumbers = () => {
+  for (let i = 0; i < lotto.numbers.length; i++) {
+    lotto.numbers[i].sort((a, b) => {
+      return a - b;
+    });
   }
 };
