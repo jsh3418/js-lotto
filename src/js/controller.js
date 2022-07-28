@@ -14,7 +14,7 @@ export const handlePurchaseAmountForm = (event) => {
 };
 
 const saveLottoPurchaseAmount = () => {
-  if (!$purchaseAmountInput.value % 1000 === 0) {
+  if (!($purchaseAmountInput.value % 1000 === 0)) {
     alert("로또 구입 금액을 1,000원 단위로 입력해 주세요.");
     return;
   }
