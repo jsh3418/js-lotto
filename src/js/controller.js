@@ -65,8 +65,6 @@ export const handleLottoNumbersToggleButton = () => {
     $lottoNumbers.forEach((element) => {
       element.classList.remove("d-none");
     });
-
-    // $lottoNumbers.classList.remove("d-none");
   } else {
     $lottoIcons.classList.remove("flex-col");
     $lottoNumbers.forEach((element) => {
