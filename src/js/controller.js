@@ -10,9 +10,9 @@ export const handlePurchaseAmountForm = (event) => {
   saveLottoPurchaseAmount();
   buyLotto();
   paintPurchaseInformation();
-  paintLottoIcons();
   lottoNumbering();
   sortNumbers();
+  paintLottoIcons();
 };
 
 const saveLottoPurchaseAmount = () => {
@@ -29,7 +29,7 @@ const paintPurchaseInformation = () => {
 
 const paintLottoIcons = () => {
   for (let i = 0; i < lotto.count; i++) {
-    $lottoIcons.innerHTML += lottoIconTemplate();
+    $lottoIcons.innerHTML += lottoIconTemplate(lotto.numbers[i]);
   }
 };
 
@@ -53,6 +53,24 @@ const sortNumbers = () => {
   for (let i = 0; i < lotto.numbers.length; i++) {
     lotto.numbers[i].sort((a, b) => {
       return a - b;
+    });
+  }
+};
+
+export const handleLottoNumbersToggleButton = () => {
+  const $lottoNumbers = document.querySelectorAll(".lotto-numbers");
+
+  if (!$lottoIcons.classList.contains("flex-col")) {
+    $lottoIcons.classList.add("flex-col");
+    $lottoNumbers.forEach((element) => {
+      element.classList.remove("d-none");
+    });
+
+    // $lottoNumbers.classList.remove("d-none");
+  } else {
+    $lottoIcons.classList.remove("flex-col");
+    $lottoNumbers.forEach((element) => {
+      element.classList.add("d-none");
     });
   }
 };
