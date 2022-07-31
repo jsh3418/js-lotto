@@ -1,9 +1,18 @@
 import { lotto, buyLotto } from "./model.js";
 import { purchaseInformationTemplate, lottoIconTemplate } from "./view.js";
 
+const $modal = document.querySelector(".modal");
 const $purchaseAmountInput = document.querySelector("#purchase-amount-input");
 const $purchaseInformation = document.querySelector("#purchase-information");
 const $lottoIcons = document.querySelector("#lotto-icons");
+
+export const onModalShow = () => {
+  $modal.classList.add("open");
+};
+
+export const onModalClose = () => {
+  $modal.classList.remove("open");
+};
 
 export const handlePurchaseAmountForm = (event) => {
   event.preventDefault();
