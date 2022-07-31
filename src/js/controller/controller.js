@@ -1,5 +1,5 @@
-import { lotto, buyLotto } from "./model.js";
-import { purchaseInformationTemplate, lottoIconTemplate } from "./view.js";
+import { lotto, buyLotto } from "../model.js";
+import { purchaseInformationTemplate, lottoIconTemplate } from "../view.js";
 
 const $modal = document.querySelector(".modal");
 const $purchaseAmountInput = document.querySelector("#purchase-amount-input");

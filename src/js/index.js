@@ -1,4 +1,4 @@
-import { initEventListener } from "./eventListener.js";
+import { initEventListener } from "./controller/eventListener.js";
 
 const init = () => {
   initEventListener();
