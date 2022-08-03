@@ -18,9 +18,9 @@ export const paintPurchaseInformation = () => {
 };
 
 export const paintLottoIcons = () => {
-  for (let i = 0; i < lotto.count; i++) {
-    $lottoIcons.innerHTML += lottoIconTemplate(lotto.numbers[i]);
-  }
+  lotto.numbers.forEach((_, index) => {
+    $lottoIcons.innerHTML += lottoIconTemplate(lotto.numbers[index]);
+  });
 };
 
 export const lottoNumbering = () => {
