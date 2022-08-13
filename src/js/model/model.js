@@ -1,3 +1,3 @@
-export const ticket = {
+export const lottoStatus = {
   count: null,
 };

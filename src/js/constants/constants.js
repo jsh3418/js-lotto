@@ -1,3 +1,3 @@
 export const LOTTO = {
-  TICKET_PRICE: 1000,
+  PRICE: 1000,
 };

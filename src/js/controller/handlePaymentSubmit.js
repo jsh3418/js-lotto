@@ -1,30 +1,27 @@
 import { LOTTO } from "../constants/constants.js";
-import { ticket } from "../model/model.js";
+import { lottoStatus } from "../model/model.js";
 import { $ } from "../util/DOM.js";
-import {
-  buyTicketMessage,
-  ticketIconTemplate,
-} from "../view/buyTicketMessage.js";
+import { buyLottoMessage, lottoIconTemplate } from "../view/buyLottoMessage.js";
 
 export const handlePaymentSubmit = (event) => {
   event.preventDefault();
 
-  buyTicket();
-  paintBuyTicketMessage();
-  paintTicketIcon();
+  buyLotto();
+  paintBuyLottoMessage();
+  paintLottoIcon();
 };
 
-const buyTicket = () => {
+const buyLotto = () => {
   const $payment = $("#payment-input").value;
-  ticket.count = $payment / LOTTO.TICKET_PRICE;
+  lottoStatus.count = $payment / LOTTO.PRICE;
 };
 
-const paintBuyTicketMessage = () => {
-  const $buyTicketMessage = $("#buy-ticket-message");
-  $buyTicketMessage.textContent = buyTicketMessage(ticket.count);
+const paintBuyLottoMessage = () => {
+  const $buylottoMessage = $("#buy-lotto-message");
+  $buylottoMessage.textContent = buyLottoMessage(lottoStatus.count);
 };
 
-const paintTicketIcon = () => {
-  const $ticketIcon = $("#ticket-icon");
-  $ticketIcon.innerHTML = ticketIconTemplate.repeat(ticket.count);
+const paintLottoIcon = () => {
+  const $lottoIcon = $("#lotto-icon");
+  $lottoIcon.innerHTML = lottoIconTemplate.repeat(lottoStatus.count);
 };
