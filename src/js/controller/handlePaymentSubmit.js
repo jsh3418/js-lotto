@@ -32,6 +32,8 @@ const appendLottoNumbers = () => {
   const $lottoIconChildNodes = $("#lotto-icon").childNodes;
   $lottoIconChildNodes.forEach((node) => {
     const span = document.createElement("span");
+    span.dataset.id = "lottoNumbers";
+    span.className = "d-none";
     span.textContent = randomNumbers();
     node.append(span);
   });
