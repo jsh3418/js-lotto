@@ -1,15 +1,25 @@
 import { LOTTO } from "../constants/constants.js";
 import { lottoStatus } from "../model/model.js";
 import { $, $$ } from "../util/DOM.js";
-import { getRandomNumber, showElement } from "../util/utils.js";
+import {
+  getRandomNumber,
+  disabledElement,
+  showElement,
+} from "../util/utils.js";
 import { buyLottoMessage, lottoIconTemplate } from "../view/view.js";
 
 export const handlePaymentSubmit = (event) => {
   event.preventDefault();
+  const $paymentInput = $("#payment-input");
+  const $paymentSubmitButton = $("#payment-submit-button");
+  const $paymentResultSection = $("#payment-result-section");
+  const $winningNumberSubmitForm = $("#winning-number-submit-form");
 
   buyLotto();
-  showElement($("#payment-result-section"));
-  showElement($("#winning-number-submit-form"));
+  disabledElement($paymentInput);
+  disabledElement($paymentSubmitButton);
+  showElement($paymentResultSection);
+  showElement($winningNumberSubmitForm);
   paintBuyLottoMessage();
   paintLottoIcon();
   appendLottoNumbers();
