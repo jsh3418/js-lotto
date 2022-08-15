@@ -49,7 +49,7 @@ const randomNumbers = () => {
       LOTTO.MAX_LOTTO_NUMBER
     );
 
-    if (!array.includes((number) => number === randomNumber)) {
+    if (!array.includes(randomNumber)) {
       array.push(randomNumber);
     }
   }
