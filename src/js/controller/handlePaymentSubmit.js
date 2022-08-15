@@ -1,6 +1,6 @@
 import { LOTTO } from "../constants/constants.js";
 import { lottoStatus } from "../model/model.js";
-import { $ } from "../util/DOM.js";
+import { $, $$ } from "../util/DOM.js";
 import { getRandomNumber } from "../util/utils.js";
 import { buyLottoMessage, lottoIconTemplate } from "../view/view.js";
 
@@ -29,13 +29,13 @@ const paintLottoIcon = () => {
 };
 
 const appendLottoNumbers = () => {
-  const $lottoIconChildNodes = $("#lotto-icon").childNodes;
-  $lottoIconChildNodes.forEach((node) => {
+  const $lottoIcons = $$('[data-id="lotto-icons"]');
+  $lottoIcons.forEach((element) => {
     const span = document.createElement("span");
     span.dataset.id = "lottoNumbers";
     span.className = "d-none";
     span.textContent = randomNumbers();
-    node.append(span);
+    element.append(span);
   });
 };
 
