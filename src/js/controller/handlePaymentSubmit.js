@@ -6,7 +6,7 @@ import {
   disabledElement,
   showElement,
 } from "../util/utils.js";
-import { buyLottoMessage, lottoIconTemplate } from "../view/view.js";
+import { buyLottoMessage, lottoListTemplate } from "../view/view.js";
 
 export const handlePaymentSubmit = (event) => {
   event.preventDefault();
@@ -37,17 +37,13 @@ const paintBuyLottoMessage = () => {
 
 const paintLottoIcon = () => {
   const $lottoIcon = $("#lotto-icon");
-  $lottoIcon.innerHTML = lottoIconTemplate.repeat(lottoStatus.count);
+  $lottoIcon.innerHTML = lottoListTemplate.repeat(lottoStatus.count);
 };
 
 const appendLottoNumbers = () => {
-  const $lottoIcons = $$('[data-id="lotto-icons"]');
+  const $lottoIcons = $$('[data-id="lotto-numbers"]');
   $lottoIcons.forEach((element) => {
-    const span = document.createElement("span");
-    span.dataset.id = "lotto-numbers";
-    span.className = "d-none";
-    span.textContent = randomNumbers();
-    element.append(span);
+    element.textContent = randomNumbers();
   });
 };
 
