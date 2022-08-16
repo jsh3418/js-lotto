@@ -44,7 +44,7 @@ const appendLottoNumbers = () => {
   const $lottoIcons = $$('[data-id="lotto-icons"]');
   $lottoIcons.forEach((element) => {
     const span = document.createElement("span");
-    span.dataset.id = "lottoNumbers";
+    span.dataset.id = "lotto-numbers";
     span.className = "d-none";
     span.textContent = randomNumbers();
     element.append(span);

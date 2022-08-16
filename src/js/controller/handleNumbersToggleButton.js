@@ -5,7 +5,7 @@ export const handleNumbersToggleButton = () => {
 };
 
 const lottoNumbersDisplayToggle = () => {
-  const $lottoNumbers = $$('[data-id="lottoNumbers"]');
+  const $lottoNumbers = $$('[data-id="lotto-numbers"]');
   $lottoNumbers.forEach((element) => {
     element.classList.toggle("d-none");
   });
