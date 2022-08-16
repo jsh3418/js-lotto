@@ -1,7 +1,12 @@
 import { $, $$ } from "../util/DOM.js";
 
 export const handleNumbersToggleButton = () => {
+  toggleFlexColumn("#lotto-icon");
   lottoNumbersDisplayToggle();
+};
+
+const toggleFlexColumn = (element) => {
+  $(element).classList.toggle("flex-col");
 };
 
 const lottoNumbersDisplayToggle = () => {
