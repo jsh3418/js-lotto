@@ -2,9 +2,13 @@ import { $, $$ } from "../util/DOM.js";
 import { lottoStatus, matchNumbers } from "../model/model.js";
 import {
   FIVE_AND_BONUS_MATCH_REWARD,
+  FIVE_MATCH,
   FIVE_MATCH_REWARD,
+  FOUR_MATCH,
   FOUR_MATCH_REWARD,
+  SIX_MATCH,
   SIX_MATCH_REWARD,
+  THREE_MATCH,
   THREE_MATCH_REWARD,
 } from "../constants/constants.js";
 
@@ -32,15 +36,15 @@ const checkMatchingWinningNumbers = () => {
       lottoStatus.winningNumbers.includes(number)
     ).length;
 
-    if (matchNumberCount === 3) {
+    if (matchNumberCount === THREE_MATCH) {
       matchNumbers.three++;
       return;
     }
-    if (matchNumberCount === 4) {
+    if (matchNumberCount === FOUR_MATCH) {
       matchNumbers.four++;
       return;
     }
-    if (matchNumberCount === 5) {
+    if (matchNumberCount === FIVE_MATCH) {
       const bonusNumber = $(".bonus-number").value;
       if (lottoNumber.includes(bonusNumber)) {
         matchNumbers.fiveAndBonusBall++;
@@ -49,7 +53,7 @@ const checkMatchingWinningNumbers = () => {
       matchNumbers.five++;
       return;
     }
-    if (matchNumberCount === 6) {
+    if (matchNumberCount === SIX_MATCH) {
       matchNumbers.six++;
       return;
     }

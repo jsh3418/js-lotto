@@ -28,8 +28,6 @@ export const handlePaymentSubmit = (event) => {
   paintBuyLottoMessage();
   paintLottoIcon();
   appendLottoNumbers();
-
-  console.log(lottoStatus);
 };
 
 const buyLotto = () => {
