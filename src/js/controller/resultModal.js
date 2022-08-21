@@ -1,6 +1,12 @@
 import { $, $$ } from "../util/DOM.js";
 import { lottoStatus, matchNumbers } from "../model/model.js";
-import { LOTTO } from "../constants/constants.js";
+import {
+  FIVE_AND_BONUS_MATCH_REWARD,
+  FIVE_MATCH_REWARD,
+  FOUR_MATCH_REWARD,
+  SIX_MATCH_REWARD,
+  THREE_MATCH_REWARD,
+} from "../constants/constants.js";
 
 export const handleResultButton = () => {
   setWinningNumbers();
@@ -60,11 +66,11 @@ const showRankCount = () => {
 
 const calculateRateOfReturn = () => {
   const totalReward =
-    matchNumbers.three * LOTTO.THREE_MATCH_REWARD +
-    matchNumbers.four * LOTTO.FOUR_MATCH_REWARD +
-    matchNumbers.five * LOTTO.FIVE_MATCH_REWARD +
-    matchNumbers.fiveAndBonusBall * LOTTO.FIVE_AND_BONUS_MATCH_REWARD +
-    matchNumbers.six * LOTTO.SIX_MATCH_REWARD;
+    matchNumbers.three * THREE_MATCH_REWARD +
+    matchNumbers.four * FOUR_MATCH_REWARD +
+    matchNumbers.five * FIVE_MATCH_REWARD +
+    matchNumbers.fiveAndBonusBall * FIVE_AND_BONUS_MATCH_REWARD +
+    matchNumbers.six * SIX_MATCH_REWARD;
 
   lottoStatus.rateOfReturn =
     ((totalReward - lottoStatus.count * 1000) / (lottoStatus.count * 1000)) *

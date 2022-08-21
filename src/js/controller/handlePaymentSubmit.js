@@ -1,4 +1,9 @@
-import { LOTTO } from "../constants/constants.js";
+import {
+  LOTTO_MAX_NUMBER,
+  LOTTO_MIN_NUMBER,
+  LOTTO_NUMBER_COUNT,
+  LOTTO_PRICE,
+} from "../constants/constants.js";
 import { lottoStatus } from "../model/model.js";
 import { $, $$ } from "../util/DOM.js";
 import {
@@ -29,7 +34,7 @@ export const handlePaymentSubmit = (event) => {
 
 const buyLotto = () => {
   const $payment = $("#payment-input").value;
-  lottoStatus.count = $payment / LOTTO.PRICE;
+  lottoStatus.count = $payment / LOTTO_PRICE;
 };
 
 const paintBuyLottoMessage = () => {
@@ -51,11 +56,8 @@ const appendLottoNumbers = () => {
 
 const randomNumbers = () => {
   const array = [];
-  while (array.length < LOTTO.WINNING_NUMBER_COUNT) {
-    const randomNumber = getRandomNumber(
-      LOTTO.MIN_LOTTO_NUMBER,
-      LOTTO.MAX_LOTTO_NUMBER
-    );
+  while (array.length < LOTTO_NUMBER_COUNT) {
+    const randomNumber = getRandomNumber(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER);
 
     if (!array.includes(randomNumber)) {
       array.push(randomNumber);
