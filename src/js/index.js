@@ -2,17 +2,18 @@ import { $ } from "./util/DOM.js";
 import { handlePaymentSubmit } from "./controller/handlePaymentSubmit.js";
 import { handleNumbersToggleButton } from "./controller/handleNumbersToggleButton.js";
 import { handleResultButton } from "./controller/resultModal.js";
-
-const onModalClose = () => {
-  const $modal = $(".modal");
-  $modal.classList.remove("open");
-};
+import {
+  handleInitButton,
+  onModalClose,
+} from "./controller/handleInitButton.js";
+import { initLottoStatus, initMatchNumbers } from "./model/model.js";
 
 const initEventListener = () => {
   const $showResultButton = $(".open-result-modal-button");
   const $modalClose = $(".modal-close");
   const $lottoNumbersToggleButton = $(".lotto-numbers-toggle-button");
   const $paymentForm = $("#payment-form");
+  const $resetButton = $("#reset-button");
 
   $showResultButton.addEventListener("click", handleResultButton);
   $modalClose.addEventListener("click", onModalClose);
@@ -21,10 +22,13 @@ const initEventListener = () => {
     "click",
     handleNumbersToggleButton
   );
+  $resetButton.addEventListener("click", handleInitButton);
 };
 
-const initApp = () => {
+export const initApp = () => {
   initEventListener();
+  initLottoStatus();
+  initMatchNumbers();
 };
 
 initApp();

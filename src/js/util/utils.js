@@ -6,6 +6,18 @@ export const disabledElement = (element) => {
   element.disabled = true;
 };
 
+export const enabledElement = (element) => {
+  element.disabled = false;
+};
+
 export const showElement = (element) => {
   element.classList.remove("d-none");
+};
+
+export const hideElement = (element) => {
+  element.classList.add("d-none");
+};
+
+export const clearInput = (element) => {
+  element.value = "";
 };
