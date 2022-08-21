@@ -1,13 +1,13 @@
 export const lottoStatus = {
   count: null,
   winningNumbers: [],
-  rateOfReturn: null,
+  // rateOfReturn: null,
 };
 
 export const initLottoStatus = () => {
   lottoStatus.count = null;
   lottoStatus.winningNumbers = [];
-  lottoStatus.rateOfReturn = null;
+  // lottoStatus.rateOfReturn = null;
 };
 
 export const matchNumbers = {

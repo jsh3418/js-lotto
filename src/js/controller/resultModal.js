@@ -76,15 +76,16 @@ const calculateRateOfReturn = () => {
     matchNumbers.fiveAndBonusBall * FIVE_AND_BONUS_MATCH_REWARD +
     matchNumbers.six * SIX_MATCH_REWARD;
 
-  lottoStatus.rateOfReturn =
+  const result =
     ((totalReward - lottoStatus.count * 1000) / (lottoStatus.count * 1000)) *
     100;
+
+  return result.toLocaleString();
 };
 
 const showRateOfReturn = () => {
-  $(
-    "#rate-of-return"
-  ).textContent = `당신의 총 수익률은 ${lottoStatus.rateOfReturn}%입니다.`;
+  const rateOfReturn = $("#rate-of-return");
+  rateOfReturn.textContent = `당신의 총 수익률은 ${calculateRateOfReturn()}%입니다.`;
 };
 
 const onModalShow = () => {
