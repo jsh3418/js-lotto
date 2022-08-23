@@ -32,7 +32,7 @@ export const handlePaymentSubmit = (event) => {
 
 const buyLotto = () => {
   const $payment = $("#payment-input").value;
-  lottoStatus.count = $payment / LOTTO_PRICE;
+  lottoStatus.count = Math.floor($payment / LOTTO_PRICE);
 };
 
 const paintBuyLottoMessage = () => {
