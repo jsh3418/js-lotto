@@ -76,11 +76,12 @@ const calculateRateOfReturn = () => {
     matchNumbers.fiveAndBonusBall * FIVE_AND_BONUS_MATCH_REWARD +
     matchNumbers.six * SIX_MATCH_REWARD;
 
-  const result =
-    ((totalReward - lottoStatus.count * 1000) / (lottoStatus.count * 1000)) *
-    100;
+  const rateOfReturn =
+    ((totalReward - lottoStatus.payment) / lottoStatus.payment) * 100;
 
-  return result.toLocaleString();
+  const result = Number(rateOfReturn.toFixed(2)).toLocaleString();
+
+  return result;
 };
 
 const showRateOfReturn = () => {
