@@ -1,11 +1,14 @@
 import { $, $$ } from "../util/DOM.js";
 import { lottoStatus, matchNumbers } from "../model/model.js";
 import {
+  ERROR_MESSAGE,
   FIVE_AND_BONUS_MATCH_REWARD,
   FIVE_MATCH,
   FIVE_MATCH_REWARD,
   FOUR_MATCH,
   FOUR_MATCH_REWARD,
+  LOTTO_MAX_NUMBER,
+  LOTTO_MIN_NUMBER,
   SIX_MATCH,
   SIX_MATCH_REWARD,
   THREE_MATCH,
@@ -13,12 +16,26 @@ import {
 } from "../constants/constants.js";
 
 export const handleResultButton = () => {
+  if (!isValidRange(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER)) {
+    return alert(ERROR_MESSAGE.OUT_OF_RANGE);
+  }
   setWinningNumbers();
   checkMatchingWinningNumbers();
   showRankCount();
   calculateRateOfReturn();
   showRateOfReturn();
   onModalShow();
+};
+
+const isValidRange = (min, max) => {
+  const $winningNumbers = $$(".winning-number");
+  const $bonusNumber = $(".bonus-number");
+  const isValidWinningNumbers = Array.from($winningNumbers).every((number) => {
+    return min <= number.value && number.value <= max;
+  });
+  const isValidBonusNumber =
+    min <= $bonusNumber.value && $bonusNumber.value <= max;
+  return isValidWinningNumbers && isValidBonusNumber;
 };
 
 const setWinningNumbers = () => {
