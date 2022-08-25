@@ -28,7 +28,7 @@ export const handleResultButton = () => {
 };
 
 const isValidRange = (min, max) => {
-  const $winningNumbers = $$(".winning-number");
+  const $winningNumbers = $$("#winning-numbers > .winning-number");
   const $bonusNumber = $(".bonus-number");
   const isValidWinningNumbers = Array.from($winningNumbers).every((number) => {
     return min <= number.value && number.value <= max;
