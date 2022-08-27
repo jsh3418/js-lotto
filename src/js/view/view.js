@@ -10,3 +10,7 @@ export const lottoListTemplate = (numbers) => `
 `;
 
 export const currentMoneyTemplate = (number) => `현재 남은 금액 : ${number}원`;
+
+export const purchaseQuickPickMessage = (number) => {
+  return `남은 잔액은 ${number}입니다. 모두 자동 번호로 구매하시겠습니까?`;
+};

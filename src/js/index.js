@@ -1,21 +1,20 @@
 import { $ } from "./util/DOM.js";
 import { handlePaymentSubmit } from "./controller/handlePaymentSubmit.js";
 import { handleNumbersToggleButton } from "./controller/handleNumbersToggleButton.js";
-import { handleResultButton } from "./controller/resultModal.js";
-import {
-  handleInitButton,
-  onModalClose,
-} from "./controller/handleInitButton.js";
+import { handleResultButton, onModalClose } from "./controller/resultModal.js";
+import { handleInitButton } from "./controller/handleInitButton.js";
 import { initLottoStatus, initMatchNumbers } from "./model/model.js";
 import { handleManualPurchaseButton } from "./controller/handleManualPurchaseButton.js";
+import { handleQuickPickButton } from "./controller/handleQuickPickButton.js";
 
 const initEventListener = () => {
   const $showResultButton = $(".open-result-modal-button");
   const $modalClose = $(".modal-close");
   const $lottoNumbersToggleButton = $(".lotto-numbers-toggle-button");
   const $paymentForm = $("#payment-form");
-  const $resetButton = $("#reset-button");
+  const $initButton = $("#init-button");
   const $manualPurchaseButton = $("#manual-purchase-button");
+  const $quickPickButton = $("#quick-pick-button");
 
   $showResultButton.addEventListener("click", handleResultButton);
   $modalClose.addEventListener("click", onModalClose);
@@ -24,8 +23,9 @@ const initEventListener = () => {
     "click",
     handleNumbersToggleButton
   );
-  $resetButton.addEventListener("click", handleInitButton);
+  $initButton.addEventListener("click", handleInitButton);
   $manualPurchaseButton.addEventListener("click", handleManualPurchaseButton);
+  $quickPickButton.addEventListener("click", handleQuickPickButton);
 };
 
 export const initApp = () => {

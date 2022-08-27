@@ -20,9 +20,10 @@ export const hideElement = (element) => {
 
 export const clearInput = (element) => {
   element.value = "";
-  if (Array.isArray(Array.from(element))) {
-    element.forEach((input) => {
-      input.value = "";
-    });
-  }
+};
+
+export const clearInputs = (inputs) => {
+  Array.from(inputs).forEach((input) => {
+    input.value = "";
+  });
 };

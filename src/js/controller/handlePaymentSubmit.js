@@ -15,12 +15,13 @@ export const handlePaymentSubmit = (event) => {
   renderCurrentMoney();
 
   showElement($("#manual-purchase"));
+  showElement($("#winning-number-submit-form"));
 };
 
 const addMoney = () => {
   const $payment = $("#payment-input").value;
-  lottoStatus.payment = $payment;
-  lottoStatus.currentMoney = $payment;
+  lottoStatus.payment = Number($payment);
+  lottoStatus.currentMoney = Number($payment);
 };
 
 export const renderCurrentMoney = () => {
@@ -30,34 +31,4 @@ export const renderCurrentMoney = () => {
 export const renderBuyLottoMessage = () => {
   const $buylottoMessage = $("#buy-lotto-message");
   $buylottoMessage.textContent = buyLottoMessage(lottoStatus.count);
-};
-
-// const buyLotto = () => {
-//   const $payment = $("#payment-input").value;
-//   lottoStatus.payment = $payment;
-//   lottoStatus.count = Math.floor($payment / LOTTO_PRICE);
-// };
-
-const paintLottoIcon = () => {
-  const $lottoIcon = $("#lotto-icon");
-  $lottoIcon.innerHTML = lottoListTemplate.repeat(lottoStatus.count);
-};
-
-const appendLottoNumbers = () => {
-  const $lottoIcons = $$('[data-id="lotto-numbers"]');
-  $lottoIcons.forEach((element) => {
-    element.textContent = randomNumbers();
-  });
-};
-
-const randomNumbers = () => {
-  const array = [];
-  while (array.length < LOTTO_NUMBER_COUNT) {
-    const randomNumber = getRandomNumber(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER);
-
-    if (!array.includes(randomNumber)) {
-      array.push(randomNumber);
-    }
-  }
-  return array.join(", ");
 };

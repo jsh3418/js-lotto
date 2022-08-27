@@ -6,7 +6,7 @@ import {
 } from "../constants/constants.js";
 import { lottoStatus } from "../model/model.js";
 import { $, $$ } from "../util/DOM.js";
-import { clearInput, showElement } from "../util/utils.js";
+import { clearInputs, showElement } from "../util/utils.js";
 import { lottoListTemplate } from "../view/view.js";
 import {
   renderBuyLottoMessage,
@@ -23,17 +23,17 @@ export const handleManualPurchaseButton = () => {
   buyLotto();
   renderCurrentMoney();
   renderBuyLottoMessage();
-  addLottoIcon();
+  addManualLotto();
 
-  clearInput($$(".manual-number"));
+  clearInputs($$(".manual-number"));
 };
 
-const buyLotto = () => {
+export const buyLotto = () => {
   lottoStatus.currentMoney -= LOTTO_PRICE;
   lottoStatus.count += 1;
 };
 
-const addLottoIcon = () => {
+export const addManualLotto = () => {
   const $lottoIcon = $("#lotto-icon");
   const manualNumbers = Array.from($$(".manual-number")).map((number) => {
     return number.value;

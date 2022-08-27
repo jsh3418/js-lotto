@@ -54,12 +54,15 @@
             >
               수동 구매하기
             </button>
-            <button type="button" class="mt-5 btn btn-cyan w-49">
+            <button
+              id="quick-pick-button"
+              type="button"
+              class="mt-5 btn btn-cyan w-49"
+            >
               잔액 자동 구매
             </button>
           </form>
-          <section id="payment-result-section" class="mt-9">
-            <!-- d-none -->
+          <section id="payment-result-section" class="mt-9 d-none">
             <div class="d-flex">
               <label id="buy-lotto-message" class="flex-auto my-0"
                 >총 0개를 구매하였습니다.</label
@@ -73,8 +76,7 @@
             </div>
             <div id="lotto-icon" class="d-flex flex-wrap"></div>
           </section>
-          <form id="winning-number-submit-form" class="mt-9">
-            <!-- d-none -->
+          <form id="winning-number-submit-form" class="mt-9 d-none">
             <label class="flex-auto d-inline-block mb-3"
               >지난 주 당첨번호 6개와 보너스 넘버 1개를 입력해주세요.</label
             >
@@ -179,7 +181,7 @@
             당신의 총 수익률은 %입니다.
           </p>
           <div class="d-flex justify-center mt-5">
-            <button id="reset-button" type="button" class="btn btn-cyan">
+            <button id="init-button" type="button" class="btn btn-cyan">
               다시 시작하기
             </button>
           </div>
