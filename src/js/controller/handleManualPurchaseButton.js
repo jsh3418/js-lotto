@@ -9,13 +9,15 @@ import { $, $$ } from "../util/DOM.js";
 import { clearInputs } from "../util/utils.js";
 import { lottoListTemplate } from "../view/view.js";
 import { renderBuyLottoMessage, renderCurrentMoney } from "./renderText.js";
-import { isValidRange } from "./validations.js";
+import { isDuplicateNumbers, isValidRange } from "./validations.js";
 
 export const handleManualPurchaseButton = () => {
   const $$manualNumber = $$(".manual-number");
 
   if (!isValidRange($$manualNumber, LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
     return alert(ERROR_MESSAGE.OUT_OF_RANGE);
+  if (isDuplicateNumbers($$manualNumber))
+    return alert(ERROR_MESSAGE.DUPLICATE_NUMBERS);
 
   buyLotto();
   renderCurrentMoney();

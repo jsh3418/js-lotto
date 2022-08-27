@@ -5,3 +5,12 @@ export const isValidRange = (element, min, max) => {
 
   return isValidWinningNumbers;
 };
+
+export const isDuplicateNumbers = (elements) => {
+  let numbers = [];
+  elements.forEach((element) => {
+    numbers.push(element.value);
+  });
+  const removeDuplicates = new Set(numbers);
+  return numbers.length !== removeDuplicates.size;
+};

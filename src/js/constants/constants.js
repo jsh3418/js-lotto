@@ -16,4 +16,5 @@ export const SIX_MATCH_REWARD = 2000000000;
 
 export const ERROR_MESSAGE = {
   OUT_OF_RANGE: `당첨 번호와 보너스 번호는 ${LOTTO_MIN_NUMBER} 부터 ${LOTTO_MAX_NUMBER} 사이의 값을 입력해주세요.`,
+  DUPLICATE_NUMBERS: `중복된 번호가 있습니다. 번호를 중복되지 않게 입력해주세요.`,
 };

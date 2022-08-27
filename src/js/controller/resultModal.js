@@ -14,11 +14,14 @@ import {
   THREE_MATCH,
   THREE_MATCH_REWARD,
 } from "../constants/constants.js";
-import { isValidRange } from "./validations.js";
+import { isDuplicateNumbers, isValidRange } from "./validations.js";
 
 export const handleResultButton = () => {
-  if (!isValidRange($$(".winning-number"), LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
+  const $$winningNumbers = $$(".winning-number");
+  if (!isValidRange($$winningNumbers, LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
     return alert(ERROR_MESSAGE.OUT_OF_RANGE);
+  if (isDuplicateNumbers($$winningNumbers))
+    return alert(ERROR_MESSAGE.DUPLICATE_NUMBERS);
 
   setWinningNumbers();
   checkMatchingWinningNumbers();
