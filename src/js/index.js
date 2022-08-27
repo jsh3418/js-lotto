@@ -1,6 +1,6 @@
 import { $ } from "./util/DOM.js";
 import { handlePaymentSubmit } from "./controller/handlePaymentSubmit.js";
-import { handleNumbersToggleButton } from "./controller/handleNumbersToggleButton.js";
+import { handleNumbersViewToggleButton } from "./controller/handleNumbersToggleButton.js";
 import { handleResultButton, onModalClose } from "./controller/resultModal.js";
 import { handleInitButton } from "./controller/handleInitButton.js";
 import { initLottoStatus, initMatchNumbers } from "./model/model.js";
@@ -21,7 +21,7 @@ const initEventListener = () => {
   $paymentForm.addEventListener("submit", handlePaymentSubmit);
   $lottoNumbersToggleButton.addEventListener(
     "click",
-    handleNumbersToggleButton
+    handleNumbersViewToggleButton
   );
   $initButton.addEventListener("click", handleInitButton);
   $manualPurchaseButton.addEventListener("click", handleManualPurchaseButton);
