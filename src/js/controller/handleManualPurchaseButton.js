@@ -15,17 +15,20 @@ import {
 import { isValidRange } from "./validations.js";
 
 export const handleManualPurchaseButton = () => {
-  if (!isValidRange($$(".manual-number"), LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
+  const $$manualNumber = $$(".manual-number");
+  const $paymentResultSection = $("#payment-result-section");
+
+  if (!isValidRange($$manualNumber, LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
     return alert(ERROR_MESSAGE.OUT_OF_RANGE);
 
-  showElement($("#payment-result-section"));
+  showElement($paymentResultSection);
 
   buyLotto();
   renderCurrentMoney();
   renderBuyLottoMessage();
   addManualLotto();
 
-  clearInputs($$(".manual-number"));
+  clearInputs($$manualNumber);
 };
 
 export const buyLotto = () => {

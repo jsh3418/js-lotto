@@ -7,6 +7,8 @@ export const handlePaymentSubmit = (event) => {
   event.preventDefault();
   const $paymentInput = $("#payment-input");
   const $paymentSubmitButton = $("#payment-submit-button");
+  const $manualPurchase = $("#manual-purchase");
+  const $winningNumberSubmitForm = $("#winning-number-submit-form");
 
   disabledElement($paymentInput);
   disabledElement($paymentSubmitButton);
@@ -14,8 +16,8 @@ export const handlePaymentSubmit = (event) => {
   addMoney();
   renderCurrentMoney();
 
-  showElement($("#manual-purchase"));
-  showElement($("#winning-number-submit-form"));
+  showElement($manualPurchase);
+  showElement($winningNumberSubmitForm);
 };
 
 const addMoney = () => {

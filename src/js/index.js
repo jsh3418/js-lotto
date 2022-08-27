@@ -1,6 +1,6 @@
 import { $ } from "./util/DOM.js";
 import { handlePaymentSubmit } from "./controller/handlePaymentSubmit.js";
-import { handleNumbersViewToggleButton } from "./controller/handleNumbersToggleButton.js";
+import { handleNumbersViewToggleButton } from "./controller/handleNumbersViewToggleButton.js";
 import { handleResultButton, onModalClose } from "./controller/resultModal.js";
 import { handleInitButton } from "./controller/handleInitButton.js";
 import { initLottoStatus, initMatchNumbers } from "./model/model.js";

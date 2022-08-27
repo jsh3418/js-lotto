@@ -29,5 +29,5 @@ export const clearInputs = (inputs) => {
 };
 
 export const toggleFlexColumn = (element) => {
-  $(element).classList.toggle("flex-col");
+  element.classList.toggle("flex-col");
 };

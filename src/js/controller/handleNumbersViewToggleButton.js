@@ -1,8 +1,10 @@
-import { $$ } from "../util/DOM.js";
+import { $, $$ } from "../util/DOM.js";
 import { toggleFlexColumn } from "../util/utils.js";
 
 export const handleNumbersViewToggleButton = () => {
-  toggleFlexColumn("#lotto-icon");
+  const $lottoIcon = $("#lotto-icon");
+
+  toggleFlexColumn($lottoIcon);
   lottoNumbersViewToggle();
 };
 
