@@ -6,22 +6,16 @@ import {
 } from "../constants/constants.js";
 import { lottoStatus } from "../model/model.js";
 import { $, $$ } from "../util/DOM.js";
-import { clearInputs, showElement } from "../util/utils.js";
+import { clearInputs } from "../util/utils.js";
 import { lottoListTemplate } from "../view/view.js";
-import {
-  renderBuyLottoMessage,
-  renderCurrentMoney,
-} from "./handlePaymentSubmit.js";
+import { renderBuyLottoMessage, renderCurrentMoney } from "./renderText.js";
 import { isValidRange } from "./validations.js";
 
 export const handleManualPurchaseButton = () => {
   const $$manualNumber = $$(".manual-number");
-  const $paymentResultSection = $("#payment-result-section");
 
   if (!isValidRange($$manualNumber, LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
     return alert(ERROR_MESSAGE.OUT_OF_RANGE);
-
-  showElement($paymentResultSection);
 
   buyLotto();
   renderCurrentMoney();

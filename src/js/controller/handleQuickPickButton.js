@@ -9,10 +9,7 @@ import { lottoListTemplate, purchaseQuickPickMessage } from "../view/view.js";
 import { buyLotto } from "./handleManualPurchaseButton.js";
 import { getRandomNumber } from "../util/utils.js";
 import { $ } from "../util/DOM.js";
-import {
-  renderBuyLottoMessage,
-  renderCurrentMoney,
-} from "./handlePaymentSubmit.js";
+import { renderBuyLottoMessage, renderCurrentMoney } from "./renderText.js";
 
 export const handleQuickPickButton = () => {
   if (confirm(purchaseQuickPickMessage(lottoStatus.currentMoney))) {
