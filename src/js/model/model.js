@@ -1,11 +1,13 @@
 export const lottoStatus = {
   payment: null,
+  currentMoney: null,
   count: null,
   winningNumbers: [],
 };
 
 export const initLottoStatus = () => {
   lottoStatus.payment = null;
+  lottoStatus.currentMoney = null;
   lottoStatus.count = null;
   lottoStatus.winningNumbers = [];
 };

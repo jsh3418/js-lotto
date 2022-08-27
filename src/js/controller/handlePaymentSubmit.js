@@ -1,45 +1,42 @@
-import {
-  LOTTO_MAX_NUMBER,
-  LOTTO_MIN_NUMBER,
-  LOTTO_NUMBER_COUNT,
-  LOTTO_PRICE,
-} from "../constants/constants.js";
 import { lottoStatus } from "../model/model.js";
-import { $, $$ } from "../util/DOM.js";
-import {
-  getRandomNumber,
-  disabledElement,
-  showElement,
-} from "../util/utils.js";
-import { buyLottoMessage, lottoListTemplate } from "../view/view.js";
+import { $ } from "../util/DOM.js";
+import { disabledElement, showElement } from "../util/utils.js";
+import { buyLottoMessage, currentMoneyTemplate } from "../view/view.js";
 
 export const handlePaymentSubmit = (event) => {
   event.preventDefault();
   const $paymentInput = $("#payment-input");
   const $paymentSubmitButton = $("#payment-submit-button");
-  const $paymentResultSection = $("#payment-result-section");
-  const $winningNumberSubmitForm = $("#winning-number-submit-form");
 
-  buyLotto();
   disabledElement($paymentInput);
   disabledElement($paymentSubmitButton);
-  showElement($paymentResultSection);
-  showElement($winningNumberSubmitForm);
-  paintBuyLottoMessage();
-  paintLottoIcon();
-  appendLottoNumbers();
+
+  addMoney();
+  renderCurrentMoney();
+
+  showElement($("#manual-purchase"));
 };
 
-const buyLotto = () => {
+const addMoney = () => {
   const $payment = $("#payment-input").value;
   lottoStatus.payment = $payment;
-  lottoStatus.count = Math.floor($payment / LOTTO_PRICE);
+  lottoStatus.currentMoney = $payment;
 };
 
-const paintBuyLottoMessage = () => {
+export const renderCurrentMoney = () => {
+  const $currentMoney = $("#current-money");
+  $currentMoney.textContent = currentMoneyTemplate(lottoStatus.currentMoney);
+};
+export const renderBuyLottoMessage = () => {
   const $buylottoMessage = $("#buy-lotto-message");
   $buylottoMessage.textContent = buyLottoMessage(lottoStatus.count);
 };
+
+// const buyLotto = () => {
+//   const $payment = $("#payment-input").value;
+//   lottoStatus.payment = $payment;
+//   lottoStatus.count = Math.floor($payment / LOTTO_PRICE);
+// };
 
 const paintLottoIcon = () => {
   const $lottoIcon = $("#lotto-icon");

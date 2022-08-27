@@ -7,6 +7,7 @@ import {
   onModalClose,
 } from "./controller/handleInitButton.js";
 import { initLottoStatus, initMatchNumbers } from "./model/model.js";
+import { handleManualPurchaseButton } from "./controller/handleManualPurchaseButton.js";
 
 const initEventListener = () => {
   const $showResultButton = $(".open-result-modal-button");
@@ -14,6 +15,7 @@ const initEventListener = () => {
   const $lottoNumbersToggleButton = $(".lotto-numbers-toggle-button");
   const $paymentForm = $("#payment-form");
   const $resetButton = $("#reset-button");
+  const $manualPurchaseButton = $("#manual-purchase-button");
 
   $showResultButton.addEventListener("click", handleResultButton);
   $modalClose.addEventListener("click", onModalClose);
@@ -23,6 +25,7 @@ const initEventListener = () => {
     handleNumbersToggleButton
   );
   $resetButton.addEventListener("click", handleInitButton);
+  $manualPurchaseButton.addEventListener("click", handleManualPurchaseButton);
 };
 
 export const initApp = () => {

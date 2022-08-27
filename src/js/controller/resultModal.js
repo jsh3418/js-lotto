@@ -14,28 +14,18 @@ import {
   THREE_MATCH,
   THREE_MATCH_REWARD,
 } from "../constants/constants.js";
+import { isValidRange } from "./validations.js";
 
 export const handleResultButton = () => {
-  if (!isValidRange(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER)) {
+  if (!isValidRange($$(".winning-number"), LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER))
     return alert(ERROR_MESSAGE.OUT_OF_RANGE);
-  }
+
   setWinningNumbers();
   checkMatchingWinningNumbers();
   showRankCount();
   calculateRateOfReturn();
   showRateOfReturn();
   onModalShow();
-};
-
-const isValidRange = (min, max) => {
-  const $winningNumbers = $$("#winning-numbers > .winning-number");
-  const $bonusNumber = $(".bonus-number");
-  const isValidWinningNumbers = Array.from($winningNumbers).every((number) => {
-    return min <= number.value && number.value <= max;
-  });
-  const isValidBonusNumber =
-    min <= $bonusNumber.value && $bonusNumber.value <= max;
-  return isValidWinningNumbers && isValidBonusNumber;
 };
 
 const setWinningNumbers = () => {
