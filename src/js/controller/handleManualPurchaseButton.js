@@ -30,7 +30,7 @@ export const buyLotto = () => {
   lottoStatus.count += 1;
 };
 
-export const addManualLotto = () => {
+const addManualLotto = () => {
   const $lottoIcon = $("#lotto-icon");
   const manualNumbers = Array.from($$(".manual-number")).map((number) => {
     return number.value;
