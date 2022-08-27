@@ -32,7 +32,7 @@ const addQuickPickLotto = () => {
   $lottoIcon.innerHTML += lottoListTemplate(randomNumbersArray.join(", "));
 };
 
-export const randomNumbers = () => {
+const randomNumbers = () => {
   const array = [];
   while (array.length < LOTTO_NUMBER_COUNT) {
     const randomNumber = getRandomNumber(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER);
