@@ -7,15 +7,18 @@ import {
 import { lottoStatus } from "../model/model.js";
 import { lottoListTemplate, purchaseQuickPickMessage } from "../view/view.js";
 import { buyLotto } from "./handleManualPurchaseButton.js";
-import { getRandomNumber } from "../util/utils.js";
-import { $ } from "../util/DOM.js";
+import { clearInputs, getRandomNumber } from "../util/utils.js";
+import { $, $$ } from "../util/DOM.js";
 import { renderBuyLottoMessage, renderCurrentMoney } from "./renderText.js";
 
 export const handleQuickPickButton = () => {
+  const $$manualNumber = $$(".manual-number");
+
   if (confirm(purchaseQuickPickMessage(lottoStatus.currentMoney))) {
     buyQuickPickLotto();
     renderCurrentMoney();
     renderBuyLottoMessage();
+    clearInputs($$manualNumber);
   }
 };
 
